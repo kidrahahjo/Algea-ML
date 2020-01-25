@@ -1,0 +1,12 @@
+Karoo GP
+ launched: 2020-01-24_22-24-32
+ dataset: /home/kidrahahjo/Genetic Programming Karoo/kstaats-karoo_gp-8e1af80/files/data_REGRESS.csv
+
+
+ Tree 35 is the most fit, with expression:
+
+ -x1*log(x2) - x1*tan(x2)/x2 + x3 - log(x2)*cos(x1)*tan(x5) - cos(x3)*tan(x5) - cos(x5)*tan(x1) - tan(x3) - 2*cos(x1)/log(x3)
+
+ Regression fitness score: 86.42769622802734
+ Mean Squared Error: 573.058837890625
+
