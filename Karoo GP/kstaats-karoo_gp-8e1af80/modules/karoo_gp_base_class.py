@@ -17,6 +17,9 @@ import time
 
 import numpy as np
 import sklearn.metrics as skm
+
+import pandas
+
 #import sklearn.cross_validation as skcv # Python 2.7
 import sklearn.model_selection as skcv
 
@@ -372,19 +375,22 @@ class Base_GP(object):
 		data_dict = {'c':cwd + '/files/data_CLASSIFY.csv', 'r':cwd + '/files/data_REGRESS.csv', 'm':cwd + '/files/data_MATCH.csv', 'p':cwd + '/files/data_PLAY.csv'}
 		
 		if len(sys.argv) == 1: # load data from the default karoo_gp/files/ directory
-			data_x = np.loadtxt(data_dict[self.kernel], skiprows = 1, delimiter = ',', dtype = float); data_x = data_x[:,0:-1] # load all but the right-most column
+			data_x = np.loadtxt(data_dict[self.kernel], skiprows = 1, delimiter = ',', dtype = float); data_x = data_x[:,0:-1] # load all but the right-most column			
+			#data_x[:,0:5] = (data_x[:,0:5]-np.mean(data_x[:,0:5],axis=0))/np.std(data_x[:,0:5],axis=0)						
 			data_y = np.loadtxt(data_dict[self.kernel], skiprows = 1, usecols = (-1,), delimiter = ',', dtype = float) # load only right-most column (class labels)
 			header = open(data_dict[self.kernel],'r') # open file to be read (below)
 			self.dataset = data_dict[self.kernel] # copy the name only
 			
 		elif len(sys.argv) == 2: # load an external data file
 			data_x = np.loadtxt(sys.argv[1], skiprows = 1, delimiter = ',', dtype = float); data_x = data_x[:,0:-1] # load all but the right-most column
+			#data_x[:,0:5] = (data_x[:,0:5]-np.mean(data_x[:,0:5],axis=0))/np.std(data_x[:,0:5],axis=0)									
 			data_y = np.loadtxt(sys.argv[1], skiprows = 1, usecols = (-1,), delimiter = ',', dtype = float) # load only right-most column (class labels)
 			header = open(sys.argv[1],'r') # open file to be read (below)
 			self.dataset = sys.argv[1] # copy the name only
 			
 		elif len(sys.argv) > 2: # receive filename and additional arguments from karoo_gp.py via argparse
 			data_x = np.loadtxt(filename, skiprows = 1, delimiter = ',', dtype = float); data_x = data_x[:,0:-1] # load all but the right-most column
+			#data_x[:,0:5] = (data_x[:,0:5]-np.mean(data_x[:,0:5],axis=0))/np.std(data_x[:,0:5],axis=0)										
 			data_y = np.loadtxt(filename, skiprows = 1, usecols = (-1,), delimiter = ',', dtype = float) # load only right-most column (class labels)
 			header = open(filename,'r') # open file to be read (below)
 			self.dataset = filename # copy the name only
@@ -1297,7 +1303,7 @@ class Base_GP(object):
 					integrating a more sophisticated kernel.
 					'''
 					
-					pairwise_fitness = tf.abs(solution - result)
+					pairwise_fitness = tf.abs((solution - result)*(solution - result))
 					
 					
 				elif self.kernel == 'm': # MATCH kernel
@@ -1307,7 +1313,7 @@ class Base_GP(object):
 					'''
 
 					# pairwise_fitness = tf.cast(tf.equal(solution, result), tf.int32) # breaks due to floating points
-					RTOL, ATOL = 1e-05, 1e-08 # fixes above issue by checking if a float value lies within a range of values
+					RTOL, ATOL = 1e-03, 0.5 # fixes above issue by checking if a float value lies within a range of values
 					pairwise_fitness = tf.cast(tf.less_equal(tf.abs(solution - result), ATOL + RTOL * tf.abs(result)), tf.int32)
 					
 				# elif self.kernel == '[other]': # use others as a template
