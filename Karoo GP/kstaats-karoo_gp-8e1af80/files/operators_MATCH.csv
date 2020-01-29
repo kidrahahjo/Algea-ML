@@ -3,19 +3,15 @@ operator, arity
 -,2
 *,2
 /,2
-+ log,2
-- log,2
-* log,2
-/ log,2
-+ cos,2
-- cos,2
-* cos,2
-/ cos,2
 + sin,2
 - sin,2
 * sin,2
 / sin,2
-+ tan,2
-- tan,2
-* tan,2
-/ tan,2
++ square,2
+- square,2
+* square,2
+/ square,2
++ sqrt,2
+- sqrt,2
+* sqrt,2
+/ sqrt,2
