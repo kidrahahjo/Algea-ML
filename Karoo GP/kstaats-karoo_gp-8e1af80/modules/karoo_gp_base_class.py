@@ -1303,7 +1303,7 @@ class Base_GP(object):
 					integrating a more sophisticated kernel.
 					'''
 					
-					pairwise_fitness = tf.abs((solution - result)*(solution - result))
+					pairwise_fitness = tf.abs((solution - result))
 					
 					
 				elif self.kernel == 'm': # MATCH kernel
