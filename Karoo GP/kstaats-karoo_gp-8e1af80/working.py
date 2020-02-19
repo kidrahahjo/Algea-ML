@@ -2,14 +2,17 @@ import math
 
 '''
 Optimum Solution obtained for the following params:
-    1. Features not used - Mixing Rate
+    1. Features not used - Mixing Rate, Highest dataset dropped - Not so smart
         Regression, Min depth = 6, Max Depth = 10, Min nodes = 10, Population = 1000
         Function - sqrt(2)*sqrt(x1)/2 + 2*sqrt(x1) + 0.3*sqrt(x1)/square(3) + 3.53553390593274*sqrt(x1)/x4 - 1.82574185835055*x1*sin(x3) + 1.41421356237309*sqrt(2)*x1 - sqrt(x2)*sqrt(x3)*sin(x1) + sqrt(x2)/sin(x2) + sqrt(x2)/sin(x1) - 1.41421356237309*x2*sin(x3) - sqrt(x3)*sin(x1) + sqrt(x3) + 1.03333333333333*x3 + 6.66666666666667*x3/square(x2) + 3*sqrt(x4)*sin(5) - 1.59104041332268*sqrt(x4) + x4 + square(0.1)/3 - square(0.3) - square(2) + 2*sqrt(5)*square(x1)/25 + 0.1*sqrt(3)*sin(x2)/sin(5) + 2.70710678118655*sin(x2) - 2*sin(x4) + sin(5) + 0.316227766016838/sin(5) + 0.821844675272815 + 3*sqrt(5)*sin(2)/5 + sqrt(2) + 0.316227766016838/sin(x3) - 0.29552020666134*square(x1)/square(0.5) - 0.774945745265543/(square(0.3)*sin(x4)) + 0.499167083234141*sin(x4)/x4 + 5.47722557505166/sqrt(x3) + sqrt(2)/sqrt(x2)
     2. Features not used - None
         Regression, Min depth = 6, Max Depth = 10, Min nodes = 10, Population = 1000
-        Function - x1 + x1*sin(5)/square(0.5) + 0.239712769302102*sqrt(2)*sqrt(x2)*square(0.3)*square(x2) - 5*sqrt(2)*x2 + 2*sqrt(x3)*square(0.5) - x3*square(0.1) - sqrt(5)*x3/5 + x3 - x4*sin(x3) - x4 - sqrt(x5) + sqrt(x5)*sin(3) + square(0.1) - 0.1*square(0.5) - 5*square(2) + square(3) + 0.316227766016838*square(5) + square(x1) - sin(x3) + sin(x4) - 6.48590874312773 - 2*sqrt(2) - sqrt(5) - sin(2) - 0.316227766016838/sin(x4) - 0.547722557505166/sin(x2) + 5*sqrt(5)/square(0.3)
+        Function - 0.316227766016838*sqrt(x1)*square(0.3) - sqrt(x1) - 1.0*x1 + 27.3861278752583*sqrt(2)*x1*square(0.5)*sin(x5)/(x2*sin(5)) - 0.3*sqrt(2)*sqrt(x2) - sqrt(5)*x3/square(5) + 0.479425538604203*x3/square(0.5) + 0.707106781186548*sqrt(x4)*square(x4)*sin(x3)/square(3) - 2*sqrt(x5) + square(2) + sqrt(5)*square(x2)*sin(x1)*sin(x3)/5 + 0.29552020666134*sin(x1) + 0.479425538604203*sin(x2) + 0.547722557505166 + sin(2) + sqrt(2) + 0.0886560619984019/(x5*square(x3)) + 0.547722557505166/x3
     3. Features not used - None
-        Mathching, Min depth = 6, Max Depth = 10, Min nodes = 10, Population = 1000
+        Matching, Min depth = 6, Max Depth = 10, Min nodes = 10, Population = 1000
+        Function - No function obtained
+    4. Features not used - Mixing Rate, Dataset dropped smartly (39.15)
+        Regression, Min depth = 6, Max Depth = 10, Min nodes = 10, Population = 1000
         Function - 
 '''
 
@@ -27,7 +30,7 @@ def mean_err(x,y,sq=True):
             z=(x[i]-y[i])**2
         else:
             z=(x[i]-y[i])
-        a.append(z)
+        a.append(abs(z))
     return sum(a)
 
 def sin(x):
@@ -41,7 +44,7 @@ def f(a1,a2,a3,a4,a5,n):
         x3=a3[i]
         x4=a4[i]
         x5=a5[i]
-        z = 0.316227766016838*sqrt(x1)*square(0.3) - sqrt(x1) + 57.7350269189626*x1*square(0.5)/(x2*sin(5)) - 0.3*sqrt(2)*sqrt(x2) - 1.0*x3 - sqrt(5)*x3/square(5) + 0.479425538604203*x3/square(0.5) + 2*sqrt(x4)*sin(x2)/square(3) - 2*sqrt(x5) + square(2) + sqrt(5)*square(x2)*sin(x1)*sin(x3)/5 + 0.29552020666134*sqrt(3)*square(x4) + 1.24420350471185*sin(x1) + 0.479425538604203*sin(x2) - 15*sin(x5) + sin(2) + sqrt(2) + 4.09544511501033 + 0.0886560619984019/(x5*square(x3)) + 0.547722557505166/x3
+        z = sqrt(2)*sqrt(x1)/2 + 3*sqrt(x1) + 0.3*sqrt(x1)/square(3) + 0.707106781186548*sqrt(x1)/x4 + sqrt(x1)*sin(x2)/sqrt(x3) + sqrt(x1)/sqrt(x2) - 1.82574185835055*x1*sin(x3) + 1.41421356237309*sqrt(2)*x1 - sqrt(x2)*sqrt(x3)*sin(x1) - sqrt(x2)*sin(x3)*sin(x4) + sqrt(x2)/sin(x2) + sqrt(x2)/sin(x1) - 1.41421356237309*x2*sin(x3) - sqrt(x3)*sin(x1) + sqrt(x3) + 1.03333333333333*x3 + 6.66666666666667*x3/square(x2) + 4*sqrt(x4)*sin(5) - 1.29552020666134*sqrt(x4) + x4 + square(0.1)/3 - square(0.3) - square(2) + sqrt(5)*square(x1)/25 + sqrt(3)*square(x1)/15 + 0.1*sqrt(3)*sin(x2)/sin(5) + 3*sin(x2) - 2*sin(x4) + sin(5) + 0.316227766016838/sin(5) + sqrt(5)*sin(2)/5 + 0.415179627052192 + sqrt(2) + 0.316227766016838/sin(x2) + sqrt(5)*sin(x2)/(5*sin(x1)) - 0.29552020666134*square(x1)/square(0.5) - 0.774945745265543/(square(0.3)*sin(x4)) + sin(x1)/x3 + 0.5*sin(x2)/sqrt(x3) + 2.73861278752583/sqrt(x3)
         y.append(float("{0:.2f}".format(z)))
     return y
 
