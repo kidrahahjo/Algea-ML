@@ -1313,8 +1313,8 @@ class Base_GP(object):
 					'''
 
 					# pairwise_fitness = tf.cast(tf.equal(solution, result), tf.int32) # breaks due to floating points
-					RTOL, ATOL = 1e-03, 0.5 # fixes above issue by checking if a float value lies within a range of values
-					pairwise_fitness = tf.cast(tf.less_equal(tf.abs(solution - result), ATOL + RTOL * tf.abs(result)), tf.int32)
+					RTOL, ATOL = 1e-2, 1 # fixes above issue by checking if a float value lies within a range of values
+					pairwise_fitness = tf.cast(tf.less_equal(tf.abs(solution - result), ATOL + RTOL * tf.abs(result)), tf.float64)
 					
 				# elif self.kernel == '[other]': # use others as a template
 					
