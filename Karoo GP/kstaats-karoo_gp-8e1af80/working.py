@@ -47,7 +47,7 @@ def f(a1,a2,a3,a4,a5,n):
         x3=a3[i]
         x4=a4[i]
         x5=a5[i]
-        z = -1.89736659610103*sqrt(3)*sqrt(x1) - 10.0*x1**2*square(0.3) + x1 + sqrt(x2)*sin(x5) + 2.0*sqrt(x2)*sin(x1)/x4 + 2*sqrt(x3) + 0.479425538604203*x3/square(0.5) - 2*sqrt(x5) + sqrt(5)*square(x2)*sin(x1)*sin(x3)/5 + 0.958851077208406*square(x4)*sin(3) + sin(x1)*sin(x3) + 0.6*sin(x1) + sin(x3) + sin(x5) - 2 + sqrt(2)/3 + 3*sin(2) - 5*sqrt(5)*sin(x5)/(square(x4)*sin(x3)) + 2.35702260395516*sqrt(3)*square(x4)*sin(x3)/square(3) + 10.0*sqrt(x3)*square(0.5)/(x2*sin(x3)) + 19.2450089729875*sqrt(3)*x3*square(0.3)*square(0.5)*sin(x1)/(x2*sin(x5)) + 0.859229244595893*sqrt(3)*x3*square(0.5)*sin(x1)/(x2*sin(x3)) + 192.450089729875*x3*square(0.3)*sin(2)*sin(5)*sin(x5)/(sqrt(x1)*x2) + 0.958851077208406*sqrt(5)*x3*sin(x3)**2/x1**(5/2)
+        z = -0.29552020666134*sqrt(x1)/square(0.1) - x2 + 3.33333333333333*x2/square(x1) - sqrt(x3)/sin(x2) - x3*sin(x4) + 2*sqrt(3)*sqrt(x4)/3 + 2*sqrt(x4) + x4*square(0.3) + square(0.3)*sin(x4) - square(0.5) + square(2)/sin(x4)**2 - square(3) - 0.547722557505166*sqrt(2)*square(5) + square(x1)*sin(x4) - 10.0166861316348*sin(2)*sin(x1)*sin(x3)*sin(x4) + 33.3889537721159*sin(x1)*sin(x3) - 3.33333333333333*sin(x1) - 1.5*sin(2)*sin(x1) - 10.0166861316348*sin(x2)*sin(x3) + 4*sin(x2)*sin(x4) + 2.96013315568248*sin(x3) + 10.0166861316348*sin(2)*sin(x3) - 2*sin(x4) + sin(3) + sin(2) + 1.37650573130545 + sqrt(2) - 3/(sin(2)*sin(x4)) - 3/sin(x4) - 3/sin(x2) + 1.67171473686306/square(3) - 3/(square(3)*sin(2)*sin(x4)) + 0.625748892880046*sqrt(2)*square(5)/square(0.5) - 1.41421356237309*sin(x1)/square(0.3) - 4.79425538604203/x4 - square(0.5)/sqrt(x4) + sqrt(3)/x3 + x3/x2 + 0.29552020666134*square(0.3)/(sqrt(x2)*square(0.1)) - 1.59808512868068/x1 + 2.0*x3/sqrt(x1)
         y.append(float("{0:.2f}".format(z)))
     return y
 
@@ -62,6 +62,6 @@ n = len(yexp)
 y=f(x1,x2,x3,x4,x5,n)
 
 print("Number of Datasets:",n,end='\n\n')
-print("Mean Error:",mean_err(y,yexp,False),end='\n\n')
+print("Mean Error:",mean_err(y,yexp,True),end='\n\n')
 for i in range(n):
     print("Obtained Value: "+str(y[i])+'\t'+"Expected Value: "+str(yexp[i]).expandtabs(20)+'\t'+"Error: "+("{0:.2f}".format(y[i]-yexp[i])).expandtabs(30))
