@@ -13,7 +13,7 @@ Optimum Solution obtained for the following params:
         Function - No function obtained
     4. Features not used - Mixing Rate, Dataset dropped smartly (39.15)
         Regression, Min depth = 6, Max Depth = 10, Min nodes = 10, Population = 1000
-        Function - -sqrt(x2)/sin(x2) + x2/square(x2) - x3*sin(x4) - 0.547722557505166*x3 + 3.12874446440023*sqrt(x4)*sin(x2) + 4*square(0.1)*sin(x4) - 3*square(0.3) - square(0.5) + square(2)/sin(x4) + square(5)*sin(x4) + 10.0166861316348*sin(5)*sin(x3) - 2*sin(x4) - sqrt(5) + 0.390961208455688 - sin(5) + 11.0*sin(3) + 2*sqrt(2) + 0.625748892880046*sqrt(2)*square(5)/square(0.5) - 1.41421356237309*sin(x1)/square(0.3) + 0.0591040413322679*sqrt(5)*square(0.3)/square(0.1) - 0.29552020666134*sqrt(5)/square(0.1) + 2.0*x3/sqrt(x1)
+        Function - -0.29552020666134*sqrt(x1)/square(0.1) - x2 + 3.33333333333333*x2/square(x1) - sqrt(x3)/sin(x2) - x3*sin(x4) + sqrt(3)*sqrt(x4)/3 + sqrt(x4) + square(0.3)*sin(x4) - square(0.5) - sqrt(5)*square(0.5)*sin(2)/(5*square(2)) + square(2)/sin(x4)**2 - square(3) - 0.547722557505166*sqrt(2)*square(5) + square(x1)*sin(x4) - 10.0166861316348*sin(2)*sin(x1)*sin(x3)*sin(x4) + 33.3889537721159*sin(x1)*sin(x3) - 3.33333333333333*sin(x1) - 10.0166861316348*sin(x2)*sin(x3) - sin(2)*sin(x2) + sin(3)*sin(x2) + 3.96013315568248*sin(x3) + 10.0166861316348*sin(2)*sin(x3) - 2*sin(x4) - sin(2) + 2*sqrt(2) + 8.69736485052473 - 6/sin(x4) - 3/sin(x2) + 0.0591040413322679*sqrt(5)/square(x3) + 0.625748892880046*sqrt(2)*square(5)/square(0.5) - 1.41421356237309*sin(x1)/square(0.3) - 3.38386336182412*sin(5)**2/x3 + sqrt(5)/x3 + 0.29552020666134*square(0.3)/(sqrt(x2)*square(0.1)) + 2.0*x3/sqrt(x1)
 '''
 
 def sqrt(x):
