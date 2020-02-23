@@ -15,7 +15,6 @@ Optimum Solution obtained for the following params:
         Function - -3.33333333333333*sqrt(x1) - 9.12870929175277*sqrt(x1)/(x4*square(0.3)) - 9.12870929175277*x1*sin(x3)*sin(x4)*sin(x5)/x4 - 1.82574185835055*x1*sin(x3)/x4 + sqrt(x2)*square(0.1)/(square(0.5)*sin(x1)) - sqrt(x2) + x2*square(0.1) + 0.3*x2*sin(x1)*sin(x2)/(square(0.5)*square(x4)*sin(x5)) - 33.3333333333333*sqrt(x3)*sin(x3)/x4**(3/2) + 0.316227766016838*x3 + x4 + x4*sin(x2)*sin(x5)/sin(x1) + 3.35702260395516*sqrt(x5) - x5 - x5/square(x4) + 0.707106781186547*square(0.1)*sin(x4)/(square(0.5)*sin(x3)) + 2*square(0.3)*sin(x2) + 5*square(5) + square(x1)/square(x5) + square(x2)/square(x5) + sin(x1)*sin(x4) + sin(x2)*sin(x4) - sin(x3) - 0.29552020666134*sin(2)*sin(x3) + sin(x4) - sin(x5) - sqrt(3) + 1.01158138932501 - 5.79028598784051*sin(5) - 0.5*sin(x4)*sin(x5)/sin(x3) - 2*sin(x5)/sin(x2) - sin(x3)/square(2) - 2*sin(x1)/square(0.5) + 0.479425538604203/square(0.5) - sin(x1)/square(0.3) + 0.1/x5 - square(x1)/sqrt(x5) - 3.0/x4 - sin(2)/x4 - 0.948683298050514*sin(x1)/(x4*square(0.3)) - 10.0*sin(x4)/(x4*square(0.3)) + square(x3)/(sqrt(x4)*x5) + square(0.1)/sqrt(x2) - 10.0*square(0.3)/x1
         Error : 29272.3446
 '''
-
 def sqrt(x):
     return x**0.5
     
