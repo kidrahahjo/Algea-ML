@@ -2,6 +2,7 @@ operator, arity
 +,2
 -,2
 *,2
+**,2
 /,2
 + sin,2
 - sin,2
@@ -11,11 +12,3 @@ operator, arity
 - tan,2
 * tan,2
 / tan,2
-+ log,2
-- log,2
-* log,2
-/ log,2
-+ sqrt,2
-- sqrt,2
-* sqrt,2
-/ sqrt,2
